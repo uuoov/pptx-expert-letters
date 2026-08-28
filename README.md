@@ -34,6 +34,37 @@
     └── bios.example.json     # 简历库样例（虚构数据）
 ```
 
+## 下载与安装
+
+```bash
+git clone https://github.com/uuoov/pptx-expert-letters.git
+```
+
+**方式一：作为 Agent Skill 使用（推荐）**
+
+把仓库克隆到 Agent 的 skills 目录即可被自动发现：
+
+| Agent | 克隆位置 |
+|---|---|
+| ZCode | `C:\Users\<你>\.agents\skills\pptx-expert-letters`（即 `~/.agents/skills/`） |
+| Claude Code | `~/.claude/skills/pptx-expert-letters` |
+
+然后直接对 Agent 说人话即可，例如：
+
+> 「用 pptx-expert-letters，参照 XX 站的沟通函模板，把 X 月 X 日 XX 站的全套专家沟通函做出来，简历在 XXX 目录」
+
+Agent 会自动加载 `SKILL.md`，按"模板解剖 → 议程任务矩阵 → 简历收集 → 配置驱动生成 → 审计验收"五步流程执行，你只需要在关键节点确认（任务矩阵、医院署名等）。
+
+**方式二：当普通脚本工具集使用**
+
+不依赖任何 Agent，clone 下来当命令行工具跑也完全可行（见下方快速开始）。
+
+**环境要求**
+
+- Python 3.8+，并安装依赖：`pip install python-pptx pymupdf pillow`
+- [LibreOffice](https://www.libreoffice.org/)（渲染验收时把 PPTX 转 PDF 用；装在默认路径即可被自动识别）
+- 生成 V2 版式需要有一份上一场会议的沟通函作捐体模板（本仓库 examples/ 内含配置样例，模板文件因含真实专家信息不入库，请使用自己经手的历史会议文件）
+
 ## 快速开始
 
 ### V2 版式（2026 CSCO 巡讲系列：页级信头 / 主席双表 / 简介页带照片 / 逐拍任务表）
