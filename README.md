@@ -36,34 +36,51 @@
 
 ## 下载与安装
 
-```bash
-git clone https://github.com/uuoov/pptx-expert-letters.git
+**你不需要会写代码，也不需要手动 clone——把一段话发给你的 Agent（ZCode / Claude Code 均可），剩下的它来做。**
+
+### 第一步：对 Agent 说这段话（【】内换成你的实际信息）
+
+```text
+请帮我安装并使用 pptx-expert-letters 这个技能：
+
+1. 把 https://github.com/uuoov/pptx-expert-letters.git 克隆到你的技能目录
+   （ZCode 是 ~/.agents/skills/，Claude Code 是 ~/.claude/skills/）；
+2. pip install python-pptx pymupdf pillow，并确认本机装有 LibreOffice（没有就提示我安装）；
+3. 然后按该技能的 SKILL.md 流程，参照 examples/v2_chengdu.json 的配置写法，
+   为我生成会议沟通函：
+   - 捐体模板（上一场会议的沟通函）：【文件夹路径】
+   - 本场议程：【飞书表格链接 / 截图 / 文字】
+   - 专家简历目录：【文件夹路径】
+   - 会议信息：【X月X日 星期X 09:00-12:00，XX酒店XX厅】
+   - 讨论问题沿用样例里的套用规则，会议信息里如无特殊说明不放议程页；
+4. 生成后按技能自带的 audit 和 qa_render 自检，并把这些事项列出来问我：
+   需要我拍板的差异（如医院署名冲突）、有简历但不在议程的候补人员、
+   简历被截断的人、两场讨论共用问题套是否可以。
 ```
 
-**方式一：作为 Agent Skill 使用（推荐）**
+### 第二步：回答 Agent 的确认问题
 
-把仓库克隆到 Agent 的 skills 目录即可被自动发现：
+Agent 会在生成前把「人×任务矩阵」拿给你确认（谁是主持、每位嘉宾参与哪个环节），
+并可能追问：某位专家的医院署名以简历还是议程为准、超长简历是否接受截断等。
+逐项回复后它会继续执行到验收完成，最终交付一人一份的 PPTX 沟通函。
 
-| Agent | 克隆位置 |
-|---|---|
-| ZCode | `C:\Users\<你>\.agents\skills\pptx-expert-letters`（即 `~/.agents/skills/`） |
-| Claude Code | `~/.claude/skills/pptx-expert-letters` |
+### 之后再次使用
 
-然后直接对 Agent 说人话即可，例如：
+技能装好后是一劳永逸的。下一场会议只需对 Agent 说：
 
-> 「用 pptx-expert-letters，参照 XX 站的沟通函模板，把 X 月 X 日 XX 站的全套专家沟通函做出来，简历在 XXX 目录」
+> 「用 pptx-expert-letters，议程在【链接/截图】，简历在【路径】，地点【XX酒店XX厅】，
+> 照上一场（【路径】）做全套沟通函」
 
-Agent 会自动加载 `SKILL.md`，按"模板解剖 → 议程任务矩阵 → 简历收集 → 配置驱动生成 → 审计验收"五步流程执行，你只需要在关键节点确认（任务矩阵、医院署名等）。
+### 手动安装（不用 Agent 时）
 
-**方式二：当普通脚本工具集使用**
+```bash
+git clone https://github.com/uuoov/pptx-expert-letters.git
+pip install python-pptx pymupdf pillow
+```
 
-不依赖任何 Agent，clone 下来当命令行工具跑也完全可行（见下方快速开始）。
-
-**环境要求**
-
-- Python 3.8+，并安装依赖：`pip install python-pptx pymupdf pillow`
-- [LibreOffice](https://www.libreoffice.org/)（渲染验收时把 PPTX 转 PDF 用；装在默认路径即可被自动识别）
-- 生成 V2 版式需要有一份上一场会议的沟通函作捐体模板（本仓库 examples/ 内含配置样例，模板文件因含真实专家信息不入库，请使用自己经手的历史会议文件）
+环境要求：Python 3.8+；[LibreOffice](https://www.libreoffice.org/)（渲染验收用，默认路径可被自动识别）；
+V2 版式需有一份上一场会议的沟通函作捐体模板（含真实专家信息，不入库，用自己经手的历史会议文件）。
+所有脚本也可脱离 Agent 单独运行（见下方快速开始）。
 
 ## 快速开始
 
