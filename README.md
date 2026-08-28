@@ -18,18 +18,40 @@
 ├── SKILL.md                  # Agent 工作流入口（触发词、五步流程、踩坑速查）
 ├── references/
 │   ├── anatomy.md            # A4 信函模板解剖详解 + 版式参数表（行高 EMU 等）
-│   └── pitfalls.md           # 17 条真实踩坑手册（XML 倒序、信头错图、溢出补偿…）
+│   ├── pitfalls.md           # 踩坑手册（XML 倒序、信头错图、溢出补偿、V2 实战…）
+│   └── v2-station-playbook.md# V2 版式档案 + 站点复刻七步 + 二次审核清单
 ├── scripts/
 │   ├── analyze_template.py   # 模板解剖：dump 文本框/表格/背景/行高/run 结构
-│   ├── extract_bios.py       # 简历提取：串场PPT批量 / docx·pptx 单份 → bios.json
-│   ├── build_letters.py      # 生成引擎：config JSON → 整套 PPTX
+│   ├── extract_bios.py       # 简历提取（旧版）：串场PPT批量 / docx·pptx 单份
+│   ├── extract_bios_v2.py    # 简历提取（V2 目录式）：二进制转换/画布过滤/扫描件渲染转写
+│   ├── build_letters.py      # 生成引擎（V1 旧版式）：config JSON → 整套 PPTX
+│   ├── build_v2.py           # 生成引擎（V2 新版式）：站点 JSON → 整套 PPTX
+│   ├── audit_v2.py           # V2 审计：校验点由站点配置自动派生
 │   └── qa_render.py          # 验收：LibreOffice 转 PDF + PyMuPDF 查空页
 └── examples/
-    ├── fuzhou_config.json    # 真实会议(20份)完整配置样例
+    ├── fuzhou_config.json    # V1 真实会议(20份)完整配置样例
+    ├── v2_chengdu.json       # V2 真实会议(32份)完整站点配置样例
     └── bios.example.json     # 简历库样例（虚构数据）
 ```
 
 ## 快速开始
+
+### V2 版式（2026 CSCO 巡讲系列：页级信头 / 主席双表 / 简介页带照片 / 逐拍任务表）
+
+先用 `scripts/extract_bios_v2.py` 从简历目录提取（自动二进制转换、扫描件渲染转写），
+再复制 `examples/v2_chengdu.json` 改成本站配置（议程/人员/地点/日期/讨论问题），
+三条命令跑完全套：
+
+```bash
+python scripts/extract_bios_v2.py --res 简历目录/ --out bios.json --port portraits/ --conv converted/
+python scripts/build_v2.py station.json      # 生成全套
+python scripts/audit_v2.py  station.json     # 配置派生自动审计
+python scripts/qa_render.py out/             # 渲染验收
+```
+
+版式细节、已定稿规范与二次审核清单见 `references/v2-station-playbook.md`。
+
+### V1 旧版式（福州/杭州式）
 
 ```bash
 # 1. 解剖一份旧会议的沟通函作模板（必做，产出全部版式参数）

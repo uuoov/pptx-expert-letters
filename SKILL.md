@@ -7,7 +7,12 @@ description: 从 A4 信函式 PPTX 模板 + 会议议程批量生成/更新整�
 
 把"照上一场会议的沟通函模板，按新议程给全套专家产出一人一份 A4 信函式 PPT"这件事工程化。核心循环：
 
-**模板解剖 → 议程任务矩阵 → 简历收集 → 配置驱动生成 → 程序审计+渲染验收 → 变更联动**
+**模板解剖 → 议程任务矩阵（含开放问题确认） → 简历收集 → 配置驱动生成 → 程序审计+渲染验收 → 信息二次审核 → 变更联动**
+
+> **V2 版式（2026 CSCO 巡讲系列：顺德/郑州/成都）与本手册旧版差异极大**：页级信头背景、
+> 主席函双表、简介页带照片、独立话题页、逐拍任务表等。做这一系列前**必读
+> [`references/v2-station-playbook.md`](references/v2-station-playbook.md)**（共享引擎+站点参数
+> 覆盖的复刻模式、用户已定稿规范、二次审核清单；参考实现 `D:\CTTQ\zz_build\`）。
 
 ## 第 0 步：模板解剖（每次必做，先于任何内容）
 
@@ -32,19 +37,31 @@ python scripts/analyze_template.py <模板.pptx> > anatomy.txt
 
 产出一张人×任务表给用户过目确认，再进入生成。
 
+**议程权威源与开放问题（V2 实战补充）**：在线表为准，但用户给的链接锚点可能指向别的站点、
+revision 会变（生成前重读）；合并单元格=双环节主持；用户指定海报图的地点/时间/名单与在线表互证。
+矩阵确认时问死三件事：①每场讨论配哪套问题（系列规则各站同套、按上一环节讲题对号；无对应
+讲题的讨论让用户选）；②首环节主持由谁介绍（已定：最后致辞的主席介绍，其函加行+附简介页）；
+③简历与目录/议程信息冲突时的署名归属。
+
 ## 第 2 步：简历收集
 
-- 首选**串场 PPT**（会务串场文件里通常有每位专家的简历页）：用 `scripts/extract_bios.py --deck 串场.pptx --names 名单` 按姓名匹配批量抽取到 `bios.json`。
-- 散简历支持 docx/pptx：`--file 某某简介.docx --name 陈群`。
-- 缺简历的专家在简介页写占位符"【简历待补充】"并明确告知用户缺谁、缺在哪几页——**绝不虚构头衔**。
+- **V2 目录式（推荐）**：`python scripts/extract_bios_v2.py --res <简历目录> --out bios.json --port portraits/ --conv converted/`
+  自动处理 .doc/.ppt 转换、画布外内容过滤、软换行拆分、照片居中裁剪；文本为 0 的扫描件
+  自动渲染 PNG 供人工转写，转写后 `--supplement supplement.json` 合并。
+- 旧版串场 PPT 方式：`scripts/extract_bios.py --deck 串场.pptx --names 名单`；散简历 `--file`。
+- 缺简历/缺文本的专家在简介页写占位符"【简历待补充】"并明确告知用户——**绝不虚构头衔**。
 
 ## 第 3 步：配置驱动生成
 
-把任务矩阵写成 JSON 配置，跑生成引擎（详见 `scripts/build_letters.py --help`，配置 schema 见文件头注释，真实样例见 examples/）：
+**V2 系列**：把任务矩阵写成站点 JSON（样例 `examples/v2_chengdu.json`，含主持链/双环节/
+首主席联动/讨论问题引用），跑统一引擎 + 配置派生审计：
 
 ```bash
-python scripts/build_letters.py config.json
+python scripts/build_v2.py station.json      # 生成全套（议程页按配置 agenda_img 决定）
+python scripts/audit_v2.py  station.json     # 配置派生自动审计
 ```
+
+旧版（福州/杭州式）仍用 `scripts/build_letters.py config.json`（schema 见文件头注释）。
 
 引擎内置了全部 XML 级操作与防错（run 重建、行克隆、行高、简介页、备注行补偿、话题防截断）。内容规范默认值：
 - **称呼**：`尊敬的 {姓名} 教授，`（姓名大号加粗下划线）；两字姓名是否加空格**问用户或沿用用户上次的偏好**。
@@ -64,6 +81,16 @@ python scripts/qa_render.py <输出目录>     # LibreOffice 转 PDF + PyMuPDF �
 2. **渲染**：全部转 PDF 确认能打开、无空页；LibreOffice 渲染。PowerPoint COM 在多数机器上报 E_FAIL，不要走那条路。
 3. **抽查渲染图**：每类角色至少人工（视觉）看一页——表格是否压线、行高是否舒适、文字是否溢出截断。
 
+## 第 4.5 步：信息二次审核（生成 ≠ 交付）
+
+渲染通过只代表排版没坏，还须核内容没错：
+1. **专家信息一致性**：简历正文 vs 简历文件名 vs 议程表的医院/职称冲突（实战：朱琰琰简历写
+   河南省人民医院、目录名河南省肿瘤医院）——默认采简历原件，交付时请用户拍板。
+2. **照片归属**：多人简历页按画布内外拆分（李锡清页混入同事刘莹）；裁剪后逐张目检本人与清晰度。
+3. **截断报告**：>17 行截断、获奖清单裁剪，逐人列名。
+4. **待确认清单**随交付列出：候补人员（有简历不在议程）、医院署名、共用问题套、双环节拆分。
+细节见 v2-station-playbook.md 的"二次审核清单"。
+
 ## 第 5 步：变更联动（换人/改时间必查清单）
 
 议程一变，牵一发动全身。换一位主持至少联动：他的任务函、**上一环节主持函的"下一环节主持"句与简介末页**、**下一环节主持函的交接句**、**被介绍讲者函的邀请人**、简介页简历。改完重跑全部生成 + 审计，不要手补单个文件。
@@ -77,3 +104,9 @@ python scripts/qa_render.py <输出目录>     # LibreOffice 转 PDF + PyMuPDF �
 - 简介页主题框按 24pt 两行设计，长话题会溢出截断——估算超 3 行整框降到 18pt。
 - 32 位 Python 偶发 MemoryError：捕获后 gc + 重试 3 次；模板 Presentation 做全局缓存。
 - 目标文件被用户在 PowerPoint 里打开会 PermissionError：提示关闭后重跑，不要跳过该文件。
+
+## 参考文档
+
+- [`references/v2-station-playbook.md`](references/v2-station-playbook.md) — V2 版式档案、站点复刻七步、用户已定稿规范、二次审核清单（做 CSCO 巡讲系列必读）
+- [`references/anatomy.md`](references/anatomy.md) — 版式解剖详解
+- [`references/pitfalls.md`](references/pitfalls.md) — 踩坑手册

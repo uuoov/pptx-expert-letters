@@ -1,0 +1,804 @@
+{
+ "name": "0905成都",
+ "template_dir": "C:/path/to/8.02沟通函_20270731 V2",
+ "base": {
+  "chair": "沟通函 - 蒋军.pptx",
+  "host": "沟通函 - 王斌.pptx",
+  "hostL": "沟通函 - 梁伟权.pptx",
+  "spk": "沟通函 - 杨爽.pptx",
+  "disc": "沟通函 - 张静 .pptx"
+ },
+ "bios": "bios.json",
+ "output": "out/",
+ "agenda_img": null,
+ "old_hotel_mark": "佛山东平保利洲际酒店",
+ "old_date_mark": "会议日期：2026年8月2日",
+ "meeting": {
+  "intro": "2026 CSCO非小细胞肺癌指南巡讲",
+  "date": "2026年9月5日",
+  "weekday": "周六",
+  "span": "09:00-12:00",
+  "hotel": "会议地点：成都世纪城洲际酒店 蜀锦厅",
+  "date_line": "会议日期：2026年9月5日 上午09:00-12:00"
+ },
+ "titles": {
+  "pos": "CSCO 驱动基因阳性NSCLC诊疗指南解读",
+  "neg": "CSCO 驱动基因阴性NSCLC诊疗指南解读",
+  "her2": "HER2突变晚期NSCLC治疗现状及未来格局",
+  "case": "驱动基因阳性NSCLC治疗病例"
+ },
+ "questions": {
+  "kras": [
+   "目前，包括格索雷塞在内已经有4款国产KRAS G12C抑制剂获批用于≥2线KRAS G12C突变晚期NSCLC，结合临床实践，请谈一谈哪些因素会影响临床上对KRAS靶向药物的选择",
+   "KRAS靶向药物正在开展多种一线联合的临床试验，您如何看待其应用前景"
+  ],
+  "her2": [
+   "现有研究为HER2靶向药物的临床应用提供了循证支持，请谈一谈对于临床实践的影响和针对后续指南更新的展望",
+   "请结合指南推荐与临床经验，谈谈非小细胞肺癌中HER2的检测时机、及在实际操作中的应用"
+  ],
+  "case": [
+   "请围绕两例KRAS G12C突变NSCLC病例，结合您的临床实践与经验，谈谈您的看法"
+  ]
+ },
+ "bios_hospital_override": {},
+ "summary_inviter": "杨雪琴",
+ "first_chair_inviter": "周洁",
+ "first_chair": "谢可",
+ "prefix": {
+  "周清华": "01-主席",
+  "张衍": "01-主席",
+  "周洁": "01-主席",
+  "谢可": "02-主持",
+  "吕红英": "02-讲者",
+  "王继旺": "03-主持",
+  "朱亚杰": "03-讲者",
+  "刘咏梅": "04-主持",
+  "杜凤华": "04-讨论",
+  "陈骏英": "04-讨论",
+  "郑建": "04-讨论",
+  "余敏": "04-讨论",
+  "刘琴": "05-主持",
+  "王艇": "05-讲者",
+  "马锴": "06-主持",
+  "王苗苗": "06-讨论",
+  "姚光宇": "06-讨论",
+  "杨长良": "06-讨论",
+  "付茂勇": "06-讨论",
+  "李强": "07-主持",
+  "张光翼": "07-病例",
+  "李江平": "08-讨论",
+  "李兵达": "08-讨论",
+  "李娜": "08-讨论",
+  "张自然": "08-讨论",
+  "黄志勇": "08-讨论",
+  "杨雪琴": "09-主持",
+  "胡彬彬": "09-病例",
+  "王伟": "10-讨论",
+  "潘春华": "10-讨论",
+  "曾珠": "10-讨论",
+  "李涛": "10-讨论"
+ },
+ "letters": [
+  {
+   "kind": "chair",
+   "name": "周清华",
+   "tasks": [
+    {
+     "time": "09:00-09:05",
+     "row": {
+      "type": "drawn_invite"
+     }
+    },
+    {
+     "time": "11:45-12:00",
+     "row": {
+      "type": "tail_summary",
+      "inviter": "杨雪琴"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "chair",
+   "name": "张衍",
+   "tasks": [
+    {
+     "time": "09:00-09:05",
+     "row": {
+      "type": "drawn_invite"
+     }
+    },
+    {
+     "time": "11:45-12:00",
+     "row": {
+      "type": "tail_summary",
+      "inviter": "杨雪琴"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "chairL",
+   "name": "周洁",
+   "profile_expert": "谢可",
+   "tasks": [
+    {
+     "time": "09:00-09:05",
+     "row": {
+      "type": "drawn_invite"
+     }
+    },
+    {
+     "time": "09:05",
+     "row": {
+      "type": "invite",
+      "inviter": null,
+      "guest": "谢可",
+      "titles": [
+       "@pos"
+      ],
+      "role": "主持嘉宾"
+     }
+    },
+    {
+     "time": "11:45-12:00",
+     "row": {
+      "type": "tail_summary",
+      "inviter": "杨雪琴"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "host",
+   "name": "谢可",
+   "del_idx": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "profiles": [
+    "吕红英"
+   ],
+   "next": "王继旺",
+   "tasks": [
+    {
+     "time": "09:05",
+     "row": {
+      "type": "invite",
+      "inviter": "周洁",
+      "guest": "您",
+      "titles": [
+       "@pos"
+      ],
+      "role": "主持嘉宾"
+     }
+    },
+    {
+     "time": "09:05-09:30",
+     "row": {
+      "type": "invite",
+      "inviter": null,
+      "guest": "吕红英",
+      "titles": [
+       "@pos"
+      ],
+      "role": "演讲嘉宾"
+     }
+    },
+    {
+     "time": "09:30",
+     "row": {
+      "type": "handoff",
+      "next": "王继旺",
+      "mandates": [
+       "@neg"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "kind": "host",
+   "name": "王继旺",
+   "del_idx": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "profiles": [
+    "朱亚杰"
+   ],
+   "next": "刘咏梅",
+   "tasks": [
+    {
+     "time": "09:30",
+     "row": {
+      "type": "invite",
+      "inviter": "谢可",
+      "guest": "您",
+      "titles": [
+       "@neg"
+      ],
+      "role": "主持嘉宾"
+     }
+    },
+    {
+     "time": "09:30-09:55",
+     "row": {
+      "type": "invite",
+      "inviter": null,
+      "guest": "朱亚杰",
+      "titles": [
+       "@neg"
+      ],
+      "role": "演讲嘉宾"
+     }
+    },
+    {
+     "time": "09:55",
+     "row": {
+      "type": "handoff",
+      "next": "刘咏梅",
+      "mandates": [
+       "专家讨论"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "kind": "host",
+   "name": "刘咏梅",
+   "del_idx": [
+    5
+   ],
+   "profiles": [
+    "杜凤华",
+    "陈骏英",
+    "郑建",
+    "余敏"
+   ],
+   "questions": "@kras",
+   "next": "刘琴",
+   "tasks": [
+    {
+     "time": "09:55",
+     "row": {
+      "type": "invite",
+      "inviter": "王继旺",
+      "guest": "您",
+      "titles": [
+       "专家讨论"
+      ],
+      "role": "主持嘉宾"
+     }
+    },
+    {
+     "time": "09:55-10:15",
+     "row": {
+      "type": "disc_list",
+      "names": [
+       "杜凤华",
+       "陈骏英",
+       "郑建",
+       "余敏"
+      ]
+     }
+    },
+    {
+     "time": "10:15",
+     "row": {
+      "type": "handoff",
+      "next": "刘琴",
+      "mandates": [
+       "@her2"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "kind": "host",
+   "name": "刘琴",
+   "del_idx": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "profiles": [
+    "王艇"
+   ],
+   "next": "马锴",
+   "tasks": [
+    {
+     "time": "10:15",
+     "row": {
+      "type": "invite",
+      "inviter": "刘咏梅",
+      "guest": "您",
+      "titles": [
+       "@her2"
+      ],
+      "role": "主持嘉宾"
+     }
+    },
+    {
+     "time": "10:15-10:30",
+     "row": {
+      "type": "invite",
+      "inviter": null,
+      "guest": "王艇",
+      "titles": [
+       "@her2"
+      ],
+      "role": "演讲嘉宾"
+     }
+    },
+    {
+     "time": "10:30",
+     "row": {
+      "type": "handoff",
+      "next": "马锴",
+      "mandates": [
+       "专家讨论"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "kind": "host",
+   "name": "马锴",
+   "del_idx": [
+    5
+   ],
+   "profiles": [
+    "王苗苗",
+    "姚光宇",
+    "杨长良",
+    "付茂勇"
+   ],
+   "questions": "@her2",
+   "next": "李强",
+   "tasks": [
+    {
+     "time": "10:30",
+     "row": {
+      "type": "invite",
+      "inviter": "刘琴",
+      "guest": "您",
+      "titles": [
+       "专家讨论"
+      ],
+      "role": "主持嘉宾"
+     }
+    },
+    {
+     "time": "10:30-10:45",
+     "row": {
+      "type": "disc_list",
+      "names": [
+       "王苗苗",
+       "姚光宇",
+       "杨长良",
+       "付茂勇"
+      ]
+     }
+    },
+    {
+     "time": "10:45",
+     "row": {
+      "type": "handoff",
+      "next": "李强",
+      "mandates": [
+       "@case",
+       "专家讨论"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "kind": "host6",
+   "name": "李强",
+   "profiles": [
+    "张光翼",
+    "李江平",
+    "李兵达",
+    "李娜",
+    "张自然",
+    "黄志勇"
+   ],
+   "questions": "@case",
+   "next": "杨雪琴",
+   "tasks": [
+    {
+     "time": "10:45",
+     "row": {
+      "type": "invite",
+      "inviter": "马锴",
+      "guest": "您",
+      "titles": [
+       "@case",
+       "专家讨论"
+      ],
+      "role": "主持嘉宾"
+     }
+    },
+    {
+     "time": "10:45-11:00",
+     "row": {
+      "type": "invite",
+      "inviter": null,
+      "guest": "张光翼",
+      "titles": [
+       "@case"
+      ],
+      "role": "演讲嘉宾"
+     }
+    },
+    {
+     "time": "11:00-11:15",
+     "row": {
+      "type": "disc_list",
+      "names": [
+       "李江平",
+       "李兵达",
+       "李娜",
+       "张自然",
+       "黄志勇"
+      ]
+     }
+    },
+    {
+     "time": "11:15",
+     "row": {
+      "type": "handoff",
+      "next": "杨雪琴",
+      "mandates": [
+       "@case",
+       "专家讨论"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "kind": "hostL",
+   "name": "杨雪琴",
+   "profiles": [
+    "胡彬彬",
+    "王伟",
+    "潘春华",
+    "曾珠",
+    "李涛"
+   ],
+   "questions": "@case",
+   "trailing": [
+    "周清华",
+    "张衍",
+    "周洁"
+   ],
+   "tasks": [
+    {
+     "time": "11:15",
+     "row": {
+      "type": "invite",
+      "inviter": "李强",
+      "guest": "您",
+      "titles": [
+       "@case",
+       "专家讨论"
+      ],
+      "role": "主持嘉宾"
+     }
+    },
+    {
+     "time": "11:15-11:30",
+     "row": {
+      "type": "invite",
+      "inviter": null,
+      "guest": "胡彬彬",
+      "titles": [
+       "@case"
+      ],
+      "role": "演讲嘉宾"
+     }
+    },
+    {
+     "time": "11:30-11:45",
+     "row": {
+      "type": "disc_list",
+      "names": [
+       "王伟",
+       "潘春华",
+       "曾珠",
+       "李涛"
+      ]
+     }
+    },
+    {
+     "time": "11:45",
+     "row": {
+      "type": "team_summary"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "spk",
+   "name": "吕红英",
+   "chair": "谢可",
+   "titles": [
+    "@pos"
+   ],
+   "time": "09:05-09:30"
+  },
+  {
+   "kind": "spk",
+   "name": "朱亚杰",
+   "chair": "王继旺",
+   "titles": [
+    "@neg"
+   ],
+   "time": "09:30-09:55"
+  },
+  {
+   "kind": "spk",
+   "name": "王艇",
+   "chair": "刘琴",
+   "titles": [
+    "@her2"
+   ],
+   "time": "10:15-10:30"
+  },
+  {
+   "kind": "spk",
+   "name": "张光翼",
+   "chair": "李强",
+   "titles": [
+    "@case"
+   ],
+   "time": "10:45-11:00"
+  },
+  {
+   "kind": "spk",
+   "name": "胡彬彬",
+   "chair": "杨雪琴",
+   "titles": [
+    "@case"
+   ],
+   "time": "11:15-11:30"
+  },
+  {
+   "kind": "disc",
+   "name": "杜凤华",
+   "chair": "刘咏梅",
+   "titles": [
+    "@neg"
+   ],
+   "time": "09:55-10:15",
+   "questions": "@kras"
+  },
+  {
+   "kind": "disc",
+   "name": "陈骏英",
+   "chair": "刘咏梅",
+   "titles": [
+    "@neg"
+   ],
+   "time": "09:55-10:15",
+   "questions": "@kras"
+  },
+  {
+   "kind": "disc",
+   "name": "郑建",
+   "chair": "刘咏梅",
+   "titles": [
+    "@neg"
+   ],
+   "time": "09:55-10:15",
+   "questions": "@kras"
+  },
+  {
+   "kind": "disc",
+   "name": "余敏",
+   "chair": "刘咏梅",
+   "titles": [
+    "@neg"
+   ],
+   "time": "09:55-10:15",
+   "questions": "@kras"
+  },
+  {
+   "kind": "disc",
+   "name": "王苗苗",
+   "chair": "马锴",
+   "titles": [
+    "@her2"
+   ],
+   "time": "10:30-10:45",
+   "questions": "@her2"
+  },
+  {
+   "kind": "disc",
+   "name": "姚光宇",
+   "chair": "马锴",
+   "titles": [
+    "@her2"
+   ],
+   "time": "10:30-10:45",
+   "questions": "@her2"
+  },
+  {
+   "kind": "disc",
+   "name": "杨长良",
+   "chair": "马锴",
+   "titles": [
+    "@her2"
+   ],
+   "time": "10:30-10:45",
+   "questions": "@her2"
+  },
+  {
+   "kind": "disc",
+   "name": "付茂勇",
+   "chair": "马锴",
+   "titles": [
+    "@her2"
+   ],
+   "time": "10:30-10:45",
+   "questions": "@her2"
+  },
+  {
+   "kind": "disc",
+   "name": "李江平",
+   "chair": "李强",
+   "titles": [
+    "@case"
+   ],
+   "time": "11:00-11:15",
+   "questions": "@case"
+  },
+  {
+   "kind": "disc",
+   "name": "李兵达",
+   "chair": "李强",
+   "titles": [
+    "@case"
+   ],
+   "time": "11:00-11:15",
+   "questions": "@case"
+  },
+  {
+   "kind": "disc",
+   "name": "李娜",
+   "chair": "李强",
+   "titles": [
+    "@case"
+   ],
+   "time": "11:00-11:15",
+   "questions": "@case"
+  },
+  {
+   "kind": "disc",
+   "name": "张自然",
+   "chair": "李强",
+   "titles": [
+    "@case"
+   ],
+   "time": "11:00-11:15",
+   "questions": "@case"
+  },
+  {
+   "kind": "disc",
+   "name": "黄志勇",
+   "chair": "李强",
+   "titles": [
+    "@case"
+   ],
+   "time": "11:00-11:15",
+   "questions": "@case"
+  },
+  {
+   "kind": "disc",
+   "name": "王伟",
+   "chair": "杨雪琴",
+   "titles": [
+    "@case"
+   ],
+   "time": "11:30-11:45",
+   "questions": "@case"
+  },
+  {
+   "kind": "disc",
+   "name": "潘春华",
+   "chair": "杨雪琴",
+   "titles": [
+    "@case"
+   ],
+   "time": "11:30-11:45",
+   "questions": "@case"
+  },
+  {
+   "kind": "disc",
+   "name": "曾珠",
+   "chair": "杨雪琴",
+   "titles": [
+    "@case"
+   ],
+   "time": "11:30-11:45",
+   "questions": "@case"
+  },
+  {
+   "kind": "disc",
+   "name": "李涛",
+   "chair": "杨雪琴",
+   "titles": [
+    "@case"
+   ],
+   "time": "11:30-11:45",
+   "questions": "@case"
+  }
+ ],
+ "stale_names": [
+  "何靓",
+  "吴芳",
+  "周通飞",
+  "宋洁",
+  "张静",
+  "张顺达",
+  "徐维",
+  "李亚军",
+  "李少强",
+  "杨爽",
+  "林立",
+  "梁伟权",
+  "梁剑苗",
+  "王斌",
+  "王芬",
+  "王震",
+  "蒋军",
+  "邓燕明",
+  "陈成聪",
+  "颛孙永勋",
+  "高惠冰",
+  "龙健婷",
+  "李醒亚",
+  "葛红",
+  "王秀问",
+  "韩娜",
+  "陈昊",
+  "靳建军",
+  "朱琰琰",
+  "齐栩",
+  "王莉莉",
+  "屠蒙",
+  "卞保祥",
+  "杨森",
+  "乔盼盼",
+  "赵宏波",
+  "魏春花",
+  "张大良",
+  "武迎喜",
+  "詹志翔",
+  "郝德勋",
+  "李锡清",
+  "张娜",
+  "王林梅",
+  "宋刚"
+ ],
+ "stale_marks": [
+  "佛山东平保利洲际酒店",
+  "郑州索菲特酒店",
+  "8月30日",
+  "9月5日（周天）"
+ ]
+}

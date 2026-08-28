@@ -47,7 +47,16 @@ def main():
     for p in pdfs:
         d = fitz.open(p)
         total += len(d)
-        blanks = [i + 1 for i in range(len(d)) if len(d[i].get_text().strip()) < 5]
+        def _blank(pg):
+            if len(pg.get_text().strip()) >= 5:
+                return False
+            # 纯图片页（如官方日程海报页）不算空白：有覆盖过半页面的图片即视为有内容
+            for img in pg.get_image_info():
+                bb = img.get('bbox')
+                if bb and (bb[2]-bb[0])*(bb[3]-bb[1]) >= 0.5*pg.rect.width*pg.rect.height:
+                    return False
+            return True
+        blanks = [i + 1 for i in range(len(d)) if _blank(d[i])]
         if blanks:
             problems.append('%s 空白页 %s' % (os.path.basename(p), blanks))
         print('  %-30s %d页%s' % (os.path.basename(p)[:30], len(d), ' 空白页!' + str(blanks) if blanks else ''))
